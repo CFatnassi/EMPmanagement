@@ -1,0 +1,151 @@
+﻿.Font {
+    color: white !important;
+}
+
+
+.btnInfo {
+    background-color: #34495E !important;
+    color: white !important;
+    font-weight : bold ;
+    font-size: 12pt !important;
+}
+
+.btnSave {
+    background-color: #29a329 !important
+}
+
+.btnSave:hover {
+    background-color: white !important;
+    border: 1px solid #29a329 !important;
+}
+
+    .btnClear:hover {
+        background-color: white !important;
+        border: 1px solid #ffcc00 !important;
+    }
+.btnSearch {
+    background-color: #D16587 !important
+}
+
+    .btnSearch:hover {
+        background-color: white !important;
+        border: 1px solid #D16587 !important;
+    }
+
+   
+.btnEmail {
+    background-color: #008B8B !important;
+}
+
+.btnExport {
+    background-color: #208000 !important
+}
+
+    .btnExport:hover {
+        background-color: white !important;
+        border: 1px solid #208000 !important;
+    }
+
+.btnUnPost {
+    background-color: #990000 !important
+}
+
+    .btnUnPost:hover {
+        background-color: white !important;
+        border: 1px solid #990000 !important;
+    }
+
+
+.btnFav {
+    background-color: #382D2C !important;
+}
+
+.btnDetail {
+    transition-duration: 0.4s;
+}
+
+    .btnDetail:hover {
+        background-color: white !important;
+        border: 1px solid #D16587 !important;
+    }
+
+
+
+
+.btnDetail {
+    background-color: #D16587 !important
+}
+
+.btnDelete-lg {
+    transition-duration: 0.4s;
+}
+
+.btnDelete-lg {
+    background-color: #E41B17 !important;
+}
+
+.btnDelete {
+    transition-duration: 0.4s;
+}
+
+    .btnDelete:hover {
+        background-color: white !important;
+        border: 1px solid #E41B17 !important;
+    }
+
+.btnDelete {
+    background-color: #E41B17 !important
+}
+
+.btnAttach {
+    transition-duration: 0.4s;
+}
+
+
+    .btnAttach:hover {
+        background-color: white !important;
+        border: 1px solid #382D2C !important;
+    }
+
+.btnAttach {
+    background-color: #382D2C !important
+}
+
+
+.btnFreez {
+    transition-duration: 0.4s;
+}
+
+
+    .btnFreez:hover {
+        background-color: white !important;
+        border: 1px solid #E41B17 !important;
+    }
+
+.btnFreez {
+    background-color: #E41B17 !important
+}
+
+.head {
+    background-color: #34495E !important
+}
+
+thead {
+    background-color: darkcyan !important;
+}
+
+
+thead {
+    color: white !important;
+}
+
+
+
+.btnPdf {
+    background-color: #008B8B !important
+}
+
+    .btnPdf:hover {
+        background-color: white !important;
+        border: 1px solid #008B8B !important;
+    }

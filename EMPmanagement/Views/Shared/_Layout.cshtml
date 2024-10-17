@@ -1,0 +1,1044 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="~/images/favicon.ico">
+
+    <title>SeniorsSoft - @ViewBag.Title </title>
+
+    @*  <link rel="stylesheet" href="~/css/thirdparty.bundle.css" />
+    <script src="~/js/thirdparty.bundle.js"></script>
+
+    *@
+    <!-- Vendors Style-->
+    <link rel="stylesheet" href="~/content/vendors/bower_components/switchery/dist/switchery.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/src/css/vendors_css.css" />
+
+    <link rel="stylesheet" href="~/src/css/style.css" />
+    <link href="~/content/bootstrap-clockpicker.min.css" rel="stylesheet" />
+    <link href="~/content/bootstrap-clockpicker.css" rel="stylesheet" />
+
+    <link href="~/content/autocomplete-0.3.0.css" rel="stylesheet" />
+    <link href="~/content/autocomplete-0.3.0.min.css" rel="stylesheet" />
+    <link href="~/content/jquery-ui.css" rel="stylesheet" />
+
+
+
+    @if (@Resources.Resource.Dir == "rtl")
+    {
+        <link rel="stylesheet" href="~/content/bootstrap-datepicker.css" />
+    }
+    else
+    {
+        <link rel="stylesheet" href="~/content/bootstrap-datepicker-rtl.css" />
+    }
+
+
+    <link href="~/assets/vendor_components/select2/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="~/assets/vendor_components/select2/dist/css/select2.css" rel="stylesheet" />
+
+
+    @*     <script type="text/javascript">
+    var selectedFormat = "PDF";
+    function onChange(val) {
+    selectedFormat = val;
+    }
+    function PrintInNewWindow() {
+    var frameElement = window.open("api/Export/Print", "_blank");
+    frameElement.addEventListener("load", function (e) {
+    if (frameElement.document.contentType !== "text/html")
+    frameElement.print();
+    });
+    }
+    function PrintInIframe() {
+    var iframe = document.getElementById('printFrame');
+    if (iframe.contentDocument.contentType !== "text/html")
+    iframe.contentWindow.print();
+    }
+    function DownloadFile() {
+    fetch("api/Export/Export?format=" + selectedFormat)
+    .then(response => response.blob())
+    .then(data => {
+    saveAs(data, 'TestReport.' + selectedFormat.toLowerCase());
+    });
+    }
+    </script>
+    <script>
+    function DirectPrint(url) {
+    //e.preventDefault();
+
+
+    var frameElement = window.open(url, "_blank");
+    frameElement.addEventListener("load", function (e) {
+    if (frameElement.document.contentType !== "text/html")
+    frameElement.print();
+
+    });
+
+    }
+    function DirectPrintblank(url, blank) {
+    //e.preventDefault();
+
+
+    var frameElement = window.open(url, "_blank");
+    frameElement.addEventListener("load", function (e) {
+    if (frameElement.document.contentType !== "text/html")
+    frameElement.print();
+
+    });
+
+    }
+    $(document).on('click', '.js-printDirect', function (e) {
+
+    e.preventDefault();
+
+    url = this.getAttribute('href');
+
+
+
+    var frameElement = window.open(url, "_blank");
+    frameElement.addEventListener("load", function (e) {
+    if (frameElement.document.contentType !== "text/html")
+    frameElement.print();
+
+    });
+
+
+    });
+    </script> *@
+
+</head>
+
+
+<body class="hold-transition light-skin sidebar-mini theme-primary fixed sidebar-collapse  @Resources.Resource.Dir ">
+    <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> </div>
+
+    <div class="wrapper">
+        <div id="loader"></div>
+
+        <header class="main-header">
+            <div class="d-flex align-items-center logo-box justify-content-start d-md-none d-block">
+                <!-- Logo -->
+                <a href="~/home/Index" class="logo">
+                    <!-- logo-->
+                    <div class="logo-mini w-30">
+                        <span class="light-logo"><img src="~/Logs/LogoIn2.png" alt="logo"></span>
+                        <span class="dark-logo"><img src="~/images/logo-letter-white.png" alt="logo"></span>
+                    </div>
+                    <div class="logo-lg">
+                        <span class="light-logo"><img src="~/images/logo-dark-text.png" alt="logo"></span>
+                        <span class="dark-logo"><img src="~/images/logo-light-text.png" alt="logo"></span>
+                    </div>
+                </a>
+            </div>
+            <!-- Header Navbar -->
+            <nav class="navbar navbar-static-top bb-2 bs-2 border-primary">
+                <!-- Sidebar toggle button-->
+                <div class="app-menu">
+                    <ul class="header-megamenu nav">
+                        <li class="btn-group nav-item">
+                            <a href="#" class="waves-effect waves-light nav-link push-btn btn-primary-light" data-toggle="push-menu" role="button">
+                                <i class="icon-Menu"><span class="path1"></span><span class="path2"></span></i>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <div class="navbar-custom-menu r-side">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown notifications-menu btn-group nav-item">
+                            <a href="#" class="waves-effect waves-light nav-link btn-primary-light svg-bt-icon" data-bs-toggle="dropdown" title="Notifications">
+                                <i class="icon-Notifications"><span class="path1"></span><span class="path2"></span></i>
+                                <div class="pulse-wave"></div>
+                            </a>
+                            <ul class="dropdown-menu animated bounceIn">
+                                <li class="header">
+                                    <div class="p-20">
+                                        <div class="flexbox">
+                                            <div>
+                                                <h4 class="mb-0 mt-0">Notifications</h4>
+                                            </div>
+                                            <div>
+                                                <a href="#" class="text-danger">Clear All</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <!-- inner menu: contains the actual data -->
+                                    <ul class="menu sm-scrol">
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-users text-info"></i>Soon.
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-warning text-warning"></i> Soon.
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </li>
+                                <li class="footer">
+                                    <a href="#">View all</a>
+                                </li>
+                            </ul>
+                        </li>
+                        @*   <li class="btn-group nav-item">
+                        <a href="#" class="waves-effect waves-light nav-link btn-primary-light svg-bt-icon" title="" data-bs-toggle="modal" data-bs-target="#quick_actions_toggle">
+                        <i class="icon-Layout-arrange"><span class="path1"></span><span class="path2"></span></i>
+                        </a>
+                        </li> *@
+                        @*<li class="btn-group nav-item d-xl-inline-flex d-none">
+                        <a href="#" class="waves-effect waves-light nav-link btn-primary-light svg-bt-icon" title="" data-bs-toggle="modal" data-bs-target="#quick_panel_toggle">
+                        <i class="icon-Notification"><span class="path1"></span><span class="path2"></span></i>
+                        </a>
+                        </li>*@
+                        @*  <li class="btn-group nav-item d-xl-inline-flex d-none">
+                        <a href="#" class="waves-effect waves-light nav-link btn-primary-light svg-bt-icon" title="" id="live-chat">
+                        <i class="icon-Chat"><span class="path1"></span><span class="path2"></span></i>
+                        </a>
+                        </li> *@
+
+                        <li class="btn-group">
+                            <a href="#" class="waves-effect waves-light nav-link btn-primary-light svg-bt-icon dropdown-toggle" data-bs-toggle="dropdown">
+                                @if (Resources.Resource.CurLang == "Eng")
+                                {
+                                    <img class="rounded" src="~/images/svg-icon/usa.svg" alt="">
+
+                                }
+                                else
+                                {
+                                    <img class="rounded" src="~/assets/icons/flag-icon-css/flags/4x3/sa.svg" alt="">
+                                }
+
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item my-5" href="/Home/SetCulture?culture=ar"><img class="w-20 rounded me-10" src="~/assets/icons/flag-icon-css/flags/4x3/sa.svg" alt=""> Arabic</a>
+                                <a class="dropdown-item my-5" href="/Home/SetCulture?culture=en"><img class="w-20 rounded me-10" src="~/images/svg-icon/usa.svg" alt=""> English</a>
+                            </div>
+                        </li>
+
+                        <li class="btn-group nav-item d-xl-inline-flex d-none">
+                            <a href="#" data-provide="fullscreen" class="waves-effect waves-light nav-link btn-primary-light svg-bt-icon" title="Full Screen">
+                                <i class="icon-Expand-arrows"><span class="path1"></span><span class="path2"></span></i>
+                            </a>
+                        </li>
+                        @*@User.Identity.Name.Split('@')[1].Split('.')[0]*@
+                        <!-- User Account-->
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="waves-effect waves-light dropdown-toggle w-auto l-h-12 bg-transparent p-0 no-shadow" title="User" data-bs-toggle="modal" data-bs-target="#quick_user_toggle">
+                                <div class="d-flex pt-1">
+                                    <div class="text-end me-10">
+                                        <p class="pt-5 fs-14 mb-0 fw-700 text-primary"><i id="_FirstName"></i></p>
+                                        <small class="fs-10 mb-0 text-uppercase text-mute"><i id="_Company"></i></small>
+                                    </div>
+                                    <img id="_ProfileImg" src="../../../images/avatar/avatar-13.png" class="avatar rounded-10 bg-primary-light h-40 w-40" alt="" />
+                                </div>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="main-sidebar bb-2 bs-1 border-primary" style="background-color:white">
+            <!-- sidebar-->
+            <section class="sidebar position-relative">
+                <div class="d-flex align-items-center logo-box justify-content-start d-md-block d-none">
+                    <!-- Logo -->
+                    <a href="~/home/Index" class="logo">
+                        <!-- logo-->
+                        <div class="logo-mini">
+                            <span class="light-logo"><img src="~/Logs/LogoIn2.png" alt="logo"></span>
+                        </div>
+                        <div class="logo-lg">
+                            <span class="light-logo fs-36 fw-700">Seniors<span class="text-primary">Soft </span></span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="multinav" style="background-color:white">
+
+
+                    <div class="multinav-scroll" style="height: 97%;">
+
+                        <ul class="sidebar-menu" data-widget="tree">
+
+
+
+
+                            <div id="myLeftMenu"></div>
+
+
+
+
+
+
+
+
+                        </ul>
+
+
+                    </div>
+                </div>
+            </section>
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <div class="container-full">
+                <!-- Content Header (Page header) -->
+                <div class="content-header">
+                    @*<div class="d-flex align-items-center">
+                    <div class="me-auto">
+                    <h4 class="page-title">Home page</h4>
+                    <div class="d-inline-block align-items-center">
+                    <nav>
+                    <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
+                    <li class="breadcrumb-item" aria-current="page">Min Site</li>
+                    <li class="breadcrumb-item active" aria-current="page">Home page</li>
+                    </ol>
+                    </nav>
+                    </div>
+                    </div>
+
+                    </div>*@
+                </div>
+
+                <!-- Main content -->
+                <section class="content">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="box">
+                                <div style="padding-top: 40px !important; padding-left: 10px !important; padding-right: 10px !important; padding-bottom: 10px !important; ">
+                                    @RenderBody()
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- /.content -->
+
+            </div>
+        </div>
+        <!-- /.content-wrapper -->
+
+        <footer class="main-footer">
+            @*<div class="pull-right d-none d-sm-inline-block">
+            <ul class="nav nav-primary nav-dotted nav-dot-separated justify-content-center justify-content-md-end">
+            <li class="nav-item">
+            <a class="nav-link" href="https://themeforest.net/item/crmi-bootstrap-admin-dashboard-template/33405709" target="_blank">Purchase Now</a>
+            </li>
+            </ul>
+            </div>*@
+            &copy;
+            <script>document.write(new Date().getFullYear())</script> <a href="https://seniorssoft.com/">SeniorsSoft</a>. All Rights Reserved.
+        </footer>
+        <!-- Side panel -->
+        <!-- quick_actions_toggle -->
+        <div class="modal @Resources.Resource.ModalDirX fade" id="quick_actions_toggle" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content slim-scroll">
+                    <div class="modal-body bg-white p-30">
+                        <div class="d-flex align-items-center justify-content-between pb-30">
+                            <h4 class="m-0">
+                                Quick Actions<br>
+                                <small class="badge fs-12 badge-primary mt-10">23 tasks pending</small>
+                            </h4>
+                            <a href="#" class="btn btn-icon btn-danger-light btn-sm no-shadow" data-bs-dismiss="modal">
+                                <span class="fa fa-close"></span>
+                            </a>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <a class="waves-effect waves-light btn btn-app btn btn-primary-light btn-flat mx-0 mb-20 no-shadow py-35 h-auto d-block" href="accounting.html">
+                                    <i class="icon-Euro fs-36"><span class="path1"></span><span class="path2"></span></i>
+                                    <span class="fs-16">Accounting</span>
+                                </a>
+                            </div>
+                            <div class="col-6">
+                                <a class="waves-effect waves-light btn btn-app btn btn-primary-light btn-flat mx-0 mb-20 no-shadow py-35 h-auto d-block" href="contact_userlist_grid.html">
+                                    <i class="icon-Mail-attachment fs-36"><span class="path1"></span><span class="path2"></span></i>
+                                    <span class="fs-16">Members</span>
+                                </a>
+                            </div>
+                            <div class="col-6">
+                                <a class="waves-effect waves-light btn btn-app btn btn-primary-light btn-flat mx-0 mb-20 no-shadow py-35 h-auto d-block" href="projects.html">
+                                    <i class="icon-Box2 fs-36"><span class="path1"></span><span class="path2"></span></i>
+                                    <span class="fs-16">Projects</span>
+                                </a>
+                            </div>
+                            <div class="col-6">
+                                <a class="waves-effect waves-light btn btn-app btn btn-primary-light btn-flat mx-0 mb-20 no-shadow py-35 h-auto d-block" href="contact_userlist.html">
+                                    <i class="icon-Group fs-36"><span class="path1"></span><span class="path2"></span></i>
+                                    <span class="fs-16">Customers</span>
+                                </a>
+                            </div>
+                            <div class="col-6">
+                                <a class="waves-effect waves-light btn btn-app btn btn-primary-light btn-flat mx-0 mb-20 no-shadow py-35 h-auto d-block" href="mailbox.html">
+                                    <i class="icon-Chart-bar fs-36"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
+                                    <span class="fs-16">Email</span>
+                                </a>
+                            </div>
+                            <div class="col-6">
+                                <a class="waves-effect waves-light btn btn-app btn btn-primary-light btn-flat mx-0 mb-20 no-shadow py-35 h-auto d-block" href="setting.html">
+                                    <i class="icon-Color-profile fs-36"><span class="path1"></span><span class="path2"></span></i>
+                                    <span class="fs-16">Settings</span>
+                                </a>
+                            </div>
+                            <div class="col-6">
+                                <a class="waves-effect waves-light btn btn-app btn btn-primary-light btn-flat mx-0 mb-20 no-shadow py-35 h-auto d-block" href="ecommerce_orders.html">
+                                    <i class="icon-Euro fs-36"><span class="path1"></span><span class="path2"></span></i>
+                                    <span class="fs-18">Orders</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /quick_actions_toggle -->
+        <!-- quick_panel_toggle -->
+        <div class="modal @Resources.Resource.ModalDir fade" id="quick_panel_toggle" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content slim-scroll2">
+                    <div class="modal-body bg-white py-20 px-0">
+                        <div class="d-flex align-items-center justify-content-between pb-30">
+                            <ul class="nav nav-tabs customtab3 px-30" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-bs-toggle="tab" href="#quick_panel_logs">Audit Logs</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#quick_panel_notifications">Notifications</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="tab" href="#quick_panel_settings">Settings</a>
+                                </li>
+                            </ul>
+                            <div class="offcanvas-close">
+                                <a href="#" class="btn btn-icon btn-danger-light btn-sm no-shadow" data-bs-dismiss="modal">
+                                    <span class="fa fa-close"></span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="px-30">
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="quick_panel_logs" role="tabpanel">
+                                    <div class="mb-30">
+                                        <h5 class="fw-500 mb-15">System Messages</h5>
+                                        <div class="d-flex align-items-center mb-30">
+                                            <div class="me-15 bg-lightest h-50 w-50 l-h-50 rounded text-center">
+                                                <img src="~/images/svg-icon/color-svg/001-glass.svg" class="h-30" alt="">
+                                            </div>
+                                            <div class="d-flex flex-column flex-grow-1 me-2 fw-500">
+                                                <a href="#" class="text-dark hover-primary mb-1 fs-16">Duis faucibus lorem</a>
+                                                <span class="text-fade">Pharetra, Nulla</span>
+                                            </div>
+                                            <span class="badge badge-xl badge-light"><span class="fw-600">+125$</span></span>
+                                        </div>
+                                        <div class="d-flex align-items-center mb-30">
+                                            <div class="me-15 bg-lightest h-50 w-50 l-h-50 rounded text-center">
+                                                <img src="~/images/svg-icon/color-svg/002-google.svg" class="h-30" alt="">
+                                            </div>
+                                            <div class="d-flex flex-column flex-grow-1 me-2 fw-500">
+                                                <a href="#" class="text-dark hover-danger mb-1 fs-16">Mauris varius augue</a>
+                                                <span class="text-fade">Pharetra, Nulla</span>
+                                            </div>
+                                            <span class="badge badge-xl badge-light"><span class="fw-600">+125$</span></span>
+                                        </div>
+                                        <div class="d-flex align-items-center mb-30">
+                                            <div class="me-15 bg-lightest h-50 w-50 l-h-50 rounded text-center">
+                                                <img src="~/images/svg-icon/color-svg/003-settings.svg" class="h-30" alt="">
+                                            </div>
+                                            <div class="d-flex flex-column flex-grow-1 me-2 fw-500">
+                                                <a href="#" class="text-dark hover-success mb-1 fs-16">Aliquam in magna</a>
+                                                <span class="text-fade">Pharetra, Nulla</span>
+                                            </div>
+                                            <span class="badge badge-xl badge-light"><span class="fw-600">+125$</span></span>
+                                        </div>
+                                        <div class="d-flex align-items-center mb-30">
+                                            <div class="me-15 bg-lightest h-50 w-50 l-h-50 rounded text-center">
+                                                <img src="~/images/svg-icon/color-svg/004-dad.svg" class="h-30" alt="">
+                                            </div>
+                                            <div class="d-flex flex-column flex-grow-1 me-2 fw-500">
+                                                <a href="#" class="text-dark hover-info mb-1 fs-16">Phasellus venenatis nisi</a>
+                                                <span class="text-fade">Pharetra, Nulla</span>
+                                            </div>
+                                            <span class="badge badge-xl badge-light"><span class="fw-600">+125$</span></span>
+                                        </div>
+                                        <div class="d-flex align-items-center">
+                                            <div class="me-15 bg-lightest h-50 w-50 l-h-50 rounded text-center">
+                                                <img src="~/images/svg-icon/color-svg/005-paint-palette.svg" class="h-30" alt="">
+                                            </div>
+                                            <div class="d-flex flex-column flex-grow-1 me-2 fw-500">
+                                                <a href="#" class="text-dark hover-warning mb-1 fs-16">Vivamus consectetur</a>
+                                                <span class="text-fade">Pharetra, Nulla</span>
+                                            </div>
+                                            <span class="badge badge-xl badge-light"><span class="fw-600">+125$</span></span>
+                                        </div>
+                                    </div>
+                                    <div class="mb-30">
+                                        <h5 class="fw-500 mb-15">Tasks Overview</h5>
+                                        <div class="d-flex align-items-center mb-30">
+                                            <div class="me-15 bg-primary-light h-50 w-50 l-h-60 rounded text-center">
+                                                <span class="icon-Library fs-24"><span class="path1"></span><span class="path2"></span></span>
+                                            </div>
+                                            <div class="d-flex flex-column fw-500">
+                                                <a href="#" class="text-dark hover-primary mb-1 fs-16">Project Briefing</a>
+                                                <span class="text-fade">Project Manager</span>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center mb-30">
+                                            <div class="me-15 bg-danger-light h-50 w-50 l-h-60 rounded text-center">
+                                                <span class="icon-Write fs-24"><span class="path1"></span><span class="path2"></span></span>
+                                            </div>
+                                            <div class="d-flex flex-column fw-500">
+                                                <a href="#" class="text-dark hover-danger mb-1 fs-16">Concept Design</a>
+                                                <span class="text-fade">Art Director</span>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center mb-30">
+                                            <div class="me-15 bg-success-light h-50 w-50 l-h-60 rounded text-center">
+                                                <span class="icon-Group-chat fs-24"><span class="path1"></span><span class="path2"></span></span>
+                                            </div>
+                                            <div class="d-flex flex-column fw-500">
+                                                <a href="#" class="text-dark hover-success mb-1 fs-16">Functional Logics</a>
+                                                <span class="text-fade">Lead Developer</span>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center mb-30">
+                                            <div class="me-15 bg-info-light h-50 w-50 l-h-60 rounded text-center">
+                                                <span class="icon-Attachment1 fs-24"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></span>
+                                            </div>
+                                            <div class="d-flex flex-column fw-500">
+                                                <a href="#" class="text-dark hover-info mb-1 fs-16">Development</a>
+                                                <span class="text-fade">DevOps</span>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center">
+                                            <div class="me-15 bg-warning-light h-50 w-50 l-h-60 rounded text-center">
+                                                <span class="icon-Shield-user fs-24"></span>
+                                            </div>
+                                            <div class="d-flex flex-column fw-500">
+                                                <a href="#" class="text-dark hover-warning mb-1 fs-16">Testing</a>
+                                                <span class="text-fade">QA Managers</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="quick_panel_notifications" role="tabpanel">
+                                    <div>
+                                        <div class="media-list">
+                                            <a class="media media-single px-0" href="#">
+                                                <h4 class="w-50 text-gray fw-500">10:10</h4>
+                                                <div class="media-body ps-15 bs-5 rounded border-primary">
+                                                    <p>Morbi quis ex eu arcu auctor sagittis.</p>
+                                                    <span class="text-fade">by Johne</span>
+                                                </div>
+                                            </a>
+
+                                            <a class="media media-single px-0" href="#">
+                                                <h4 class="w-50 text-gray fw-500">08:40</h4>
+                                                <div class="media-body ps-15 bs-5 rounded border-success">
+                                                    <p>Proin iaculis eros non odio ornare efficitur.</p>
+                                                    <span class="text-fade">by Amla</span>
+                                                </div>
+                                            </a>
+
+                                            <a class="media media-single px-0" href="#">
+                                                <h4 class="w-50 text-gray fw-500">07:10</h4>
+                                                <div class="media-body ps-15 bs-5 rounded border-info">
+                                                    <p>In mattis mi ut posuere consectetur.</p>
+                                                    <span class="text-fade">by Josef</span>
+                                                </div>
+                                            </a>
+
+                                            <a class="media media-single px-0" href="#">
+                                                <h4 class="w-50 text-gray fw-500">01:15</h4>
+                                                <div class="media-body ps-15 bs-5 rounded border-danger">
+                                                    <p>Morbi quis ex eu arcu auctor sagittis.</p>
+                                                    <span class="text-fade">by Rima</span>
+                                                </div>
+                                            </a>
+
+                                            <a class="media media-single px-0" href="#">
+                                                <h4 class="w-50 text-gray fw-500">23:12</h4>
+                                                <div class="media-body ps-15 bs-5 rounded border-warning">
+                                                    <p>Morbi quis ex eu arcu auctor sagittis.</p>
+                                                    <span class="text-fade">by Alaxa</span>
+                                                </div>
+                                            </a>
+                                            <a class="media media-single px-0" href="#">
+                                                <h4 class="w-50 text-gray fw-500">10:10</h4>
+                                                <div class="media-body ps-15 bs-5 rounded border-primary">
+                                                    <p>Morbi quis ex eu arcu auctor sagittis.</p>
+                                                    <span class="text-fade">by Johne</span>
+                                                </div>
+                                            </a>
+
+                                            <a class="media media-single px-0" href="#">
+                                                <h4 class="w-50 text-gray fw-500">08:40</h4>
+                                                <div class="media-body ps-15 bs-5 rounded border-success">
+                                                    <p>Proin iaculis eros non odio ornare efficitur.</p>
+                                                    <span class="text-fade">by Amla</span>
+                                                </div>
+                                            </a>
+
+                                            <a class="media media-single px-0" href="#">
+                                                <h4 class="w-50 text-gray fw-500">07:10</h4>
+                                                <div class="media-body ps-15 bs-5 rounded border-info">
+                                                    <p>In mattis mi ut posuere consectetur.</p>
+                                                    <span class="text-fade">by Josef</span>
+                                                </div>
+                                            </a>
+
+                                            <a class="media media-single px-0" href="#">
+                                                <h4 class="w-50 text-gray fw-500">01:15</h4>
+                                                <div class="media-body ps-15 bs-5 rounded border-danger">
+                                                    <p>Morbi quis ex eu arcu auctor sagittis.</p>
+                                                    <span class="text-fade">by Rima</span>
+                                                </div>
+                                            </a>
+
+                                            <a class="media media-single px-0" href="#">
+                                                <h4 class="w-50 text-gray fw-500">23:12</h4>
+                                                <div class="media-body ps-15 bs-5 rounded border-warning">
+                                                    <p>Morbi quis ex eu arcu auctor sagittis.</p>
+                                                    <span class="text-fade">by Alaxa</span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="quick_panel_settings" role="tabpanel">
+                                    <div>
+                                        <form class="form">
+                                            <!--begin::Section-->
+                                            <div>
+                                                <h5 class="fw-500 mb-15">Customer Care</h5>
+                                                <div class="form-group mb-0 row align-items-center">
+                                                    <label class="col-8 col-form-label">Enable Notifications:</label>
+                                                    <div class="col-4 d-flex justify-content-end">
+                                                        <button type="button" class="btn btn-sm btn-toggle btn-primary active" data-bs-toggle="button">
+                                                            <span class="handle"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group mb-0 row align-items-center">
+                                                    <label class="col-8 col-form-label">Enable Case Tracking:</label>
+                                                    <div class="col-4 d-flex justify-content-end">
+                                                        <button type="button" class="btn btn-sm btn-toggle btn-primary" data-bs-toggle="button">
+                                                            <span class="handle"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group mb-0 row align-items-center">
+                                                    <label class="col-8 col-form-label">Support Portal:</label>
+                                                    <div class="col-4 d-flex justify-content-end">
+                                                        <button type="button" class="btn btn-sm btn-toggle btn-primary active" data-bs-toggle="button">
+                                                            <span class="handle"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--end::Section-->
+                                            <div class="dropdown-divider"></div>
+                                            <!--begin::Section-->
+                                            <div class="pt-2">
+                                                <h5 class="fw-500 mb-15">Reports</h5>
+                                                <div class="form-group mb-0 row align-items-center">
+                                                    <label class="col-8 col-form-label">Generate Reports:</label>
+                                                    <div class="col-4 d-flex justify-content-end">
+                                                        <button type="button" class="btn btn-sm btn-toggle btn-danger active" data-bs-toggle="button">
+                                                            <span class="handle"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group mb-0 row align-items-center">
+                                                    <label class="col-8 col-form-label">Enable Report Export:</label>
+                                                    <div class="col-4 d-flex justify-content-end">
+                                                        <button type="button" class="btn btn-sm btn-toggle btn-danger active" data-bs-toggle="button">
+                                                            <span class="handle"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group mb-0 row align-items-center">
+                                                    <label class="col-8 col-form-label">Allow Data Collection:</label>
+                                                    <div class="col-4 d-flex justify-content-end">
+                                                        <button type="button" class="btn btn-sm btn-toggle btn-danger active" data-bs-toggle="button">
+                                                            <span class="handle"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--end::Section-->
+                                            <div class="dropdown-divider"></div>
+                                            <!--begin::Section-->
+                                            <div class="pt-2">
+                                                <h5 class="fw-500 mb-15">Memebers</h5>
+                                                <div class="form-group mb-0 row align-items-center">
+                                                    <label class="col-8 col-form-label">Enable Member singup:</label>
+                                                    <div class="col-4 d-flex justify-content-end">
+                                                        <button type="button" class="btn btn-sm btn-toggle btn-warning active" data-bs-toggle="button">
+                                                            <span class="handle"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group mb-0 row align-items-center">
+                                                    <label class="col-8 col-form-label">Allow User Feedbacks:</label>
+                                                    <div class="col-4 d-flex justify-content-end">
+                                                        <button type="button" class="btn btn-sm btn-toggle btn-warning active" data-bs-toggle="button">
+                                                            <span class="handle"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group mb-0 row align-items-center">
+                                                    <label class="col-8 col-form-label">Enable Customer Portal:</label>
+                                                    <div class="col-4 d-flex justify-content-end">
+                                                        <button type="button" class="btn btn-sm btn-toggle btn-warning active" data-bs-toggle="button">
+                                                            <span class="handle"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--end::Section-->
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /quick_panel_toggle -->
+        <!-- quick_user_toggle -->
+        <div class="modal @Resources.Resource.ModalDirX fade" id="quick_user_toggle" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content slim-scroll3">
+                    <div class="modal-body p-30 bg-white">
+                        <div class="d-flex align-items-center justify-content-between pb-30">
+                            <h4 class="m-0">
+                                User Profile
+                                @*<small class="text-fade fs-12 ms-5">12 messages</small>*@
+                            </h4>
+                            <a href="#" class="btn btn-icon btn-danger-light btn-sm no-shadow" data-bs-dismiss="modal">
+                                <span class="fa fa-close"></span>
+                            </a>
+                        </div>
+                        <div>
+                            <div class="d-flex flex-row">
+                                <div class=""><img src="../../../images/avatar/avatar-13.png" id="_ProfileImg3" alt="user" class="rounded-0 me-10"></div>
+                                <div class="ps-20">
+                                    <h5 class="mb-0"><i id="_FirstName3"></i> <i id="_LastName3"></i></h5>
+                                    <p class="my-5 text-fade"><i id="_Company3"></i></p>
+                                    <a><span class="icon-Mail-notification me-5 text-success"><span class="path1"></span><span class="path2"></span></span> @User.Identity.Name </a>
+
+                                    <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="/" method="post">
+                                        <button type="submit" class="path2"><i class="ti-lock"></i> @Resources.Resource.LogOff</button>
+                                    </form>
+
+                                    @*   @using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                                    {
+                                    @Html.AntiForgeryToken()
+                                    <a class="path2" href="javascript:document.getElementById('logoutForm').submit()"><i class="ti-lock"></i> @Resources.Resource.LogOff</a>
+                                    } *@
+                                    @*<button class="btn btn-success-light btn-sm mt-5"><i class="ti-plus"></i> Follow</button>*@
+                                </div>
+                            </div>
+                            <div class="d-flex flex-row">
+                            </div>
+                        </div>
+                        <div class="dropdown-divider my-30"></div>
+                        <div>
+                            @*    <div class="d-flex align-items-center mb-30">
+                            <div class="me-15 bg-primary-light h-50 w-50 l-h-60 rounded text-center">
+                            <span class="icon-Library fs-24"><span class="path1"></span><span class="path2"></span></span>
+                            </div>
+                            <div class="d-flex flex-column fw-500">
+                            <a href="/Profile/MyProfile" class="text-dark hover-primary mb-1 fs-16">@Resources.Resource.MyProfile</a>
+
+                            </div>
+
+                            </div> *@
+                            @*    <div class="d-flex align-items-center mb-30">
+                            <div class="me-15 bg-danger-light h-50 w-50 l-h-60 rounded text-center">
+                            <span class="icon-Write fs-24"><span class="path1"></span><span class="path2"></span></span>
+                            </div>
+                            <div class="d-flex flex-column fw-500">
+                            <a href="/Users/ChangemyPassword" class="text-dark hover-danger mb-1 fs-16 js-addnew">@Resources.Resource.ChangePassword</a>
+                            <span class="text-fade"></span>
+                            </div>
+                            </div> *@
+                            @*<div class="d-flex align-items-center mb-30">
+                            <div class="me-15 bg-success-light h-50 w-50 l-h-60 rounded text-center">
+                            <span class="icon-Group-chat fs-24"><span class="path1"></span><span class="path2"></span></span>
+                            </div>
+                            <div class="d-flex flex-column fw-500">
+                            <a href="#" class="text-dark hover-success mb-1 fs-16">My Activities</a>
+                            <span class="text-fade">Logs and notifications</span>
+                            </div>
+                            </div>*@
+                            @*<div class="d-flex align-items-center mb-30">
+                            <div class="me-15 bg-info-light h-50 w-50 l-h-60 rounded text-center">
+                            <span class="icon-Attachment1 fs-24"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></span>
+                            </div>
+                            <div class="d-flex flex-column fw-500">
+                            <a href="#" class="text-dark hover-info mb-1 fs-16">My Tasks</a>
+                            <span class="text-fade">latest tasks and projects</span>
+                            </div>
+                            </div>*@
+                        </div>
+                        <div class="dropdown-divider my-30"></div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /quick_user_toggle -->
+        <!-- quick_shop_toggle -->
+        <div class="modal @Resources.Resource.ModalDir fade" id="quick_shop_toggle" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="px-15 d-flex w-p100 align-items-center justify-content-between">
+                            <h4 class="m-0">Shopping Cart</h4>
+                            <a href="#" class="btn btn-icon btn-danger-light btn-sm no-shadow" data-bs-dismiss="modal">
+                                <span class="fa fa-close"></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="modal-body px-30 pb-30 bg-white slim-scroll4">
+                        <div class="d-flex align-items-center justify-content-between pb-15">
+                            <div class="d-flex flex-column me-2">
+                                <a href="#" class="fw-600 fs-18 text-hover-primary">Product Name</a>
+                                <span class="text-muted">When an unknown printer</span>
+                                <div class="d-flex align-items-center mt-2">
+                                    <span class="fw-600 me-5 fs-18">$ 125</span>
+                                    <span class="text-muted me-5">for</span>
+                                    <span class="fw-600 me-2 fs-18">4</span>
+                                    <a href="#" class="btn btn-sm btn-success-light btn-icon me-2">
+                                        <i class="fa fa-minus"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-sm btn-success-light btn-icon">
+                                        <i class="fa fa-plus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <a href="#" class="flex-shrink-0">
+                                <img src="~/images/product/product-1.png" class="avatar h-100 w-100" alt="" />
+                            </a>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <div class="d-flex align-items-center justify-content-between py-15">
+                            <div class="d-flex flex-column me-2">
+                                <a href="#" class="fw-600 fs-18 text-hover-primary">Product Name</a>
+                                <span class="text-muted">When an unknown printer</span>
+                                <div class="d-flex align-items-center mt-2">
+                                    <span class="fw-600 me-5 fs-18">$ 125</span>
+                                    <span class="text-muted me-5">for</span>
+                                    <span class="fw-600 me-2 fs-18">4</span>
+                                    <a href="#" class="btn btn-sm btn-success-light btn-icon me-2">
+                                        <i class="fa fa-minus"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-sm btn-success-light btn-icon">
+                                        <i class="fa fa-plus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <a href="#" class="flex-shrink-0">
+                                <img src="~/images/product/product-2.png" class="avatar h-100 w-100" alt="" />
+                            </a>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <div class="d-flex align-items-center justify-content-between py-15">
+                            <div class="d-flex flex-column me-2">
+                                <a href="#" class="fw-600 fs-18 text-hover-primary">Product Name</a>
+                                <span class="text-muted">When an unknown printer</span>
+                                <div class="d-flex align-items-center mt-2">
+                                    <span class="fw-600 me-5 fs-18">$ 125</span>
+                                    <span class="text-muted me-5">for</span>
+                                    <span class="fw-600 me-2 fs-18">4</span>
+                                    <a href="#" class="btn btn-sm btn-success-light btn-icon me-2">
+                                        <i class="fa fa-minus"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-sm btn-success-light btn-icon">
+                                        <i class="fa fa-plus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <a href="#" class="flex-shrink-0">
+                                <img src="~/images/product/product-3.png" class="avatar h-100 w-100" alt="" />
+                            </a>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <div class="d-flex align-items-center justify-content-between py-15">
+                            <div class="d-flex flex-column me-2">
+                                <a href="#" class="fw-600 fs-18 text-hover-primary">Product Name</a>
+                                <span class="text-muted">When an unknown printer</span>
+                                <div class="d-flex align-items-center mt-2">
+                                    <span class="fw-600 me-5 fs-18">$ 125</span>
+                                    <span class="text-muted me-5">for</span>
+                                    <span class="fw-600 me-2 fs-18">4</span>
+                                    <a href="#" class="btn btn-sm btn-success-light btn-icon me-2">
+                                        <i class="fa fa-minus"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-sm btn-success-light btn-icon">
+                                        <i class="fa fa-plus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <a href="#" class="flex-shrink-0">
+                                <img src="~/images/product/product-4.png" class="avatar h-100 w-100" alt="" />
+                            </a>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <div class="d-flex align-items-center justify-content-between py-15">
+                            <div class="d-flex flex-column me-2">
+                                <a href="#" class="fw-600 fs-18 text-hover-primary">Product Name</a>
+                                <span class="text-muted">When an unknown printer</span>
+                                <div class="d-flex align-items-center mt-2">
+                                    <span class="fw-600 me-5 fs-18">$ 125</span>
+                                    <span class="text-muted me-5">for</span>
+                                    <span class="fw-600 me-2 fs-18">4</span>
+                                    <a href="#" class="btn btn-sm btn-success-light btn-icon me-2">
+                                        <i class="fa fa-minus"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-sm btn-success-light btn-icon">
+                                        <i class="fa fa-plus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <a href="#" class="flex-shrink-0">
+                                <img src="~/images/product/product-5.png" class="avatar h-100 w-100" alt="" />
+                            </a>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <div class="d-flex align-items-center justify-content-between py-15">
+                            <div class="d-flex flex-column me-2">
+                                <a href="#" class="fw-600 fs-18 text-hover-primary">Product Name</a>
+                                <span class="text-muted">When an unknown printer</span>
+                                <div class="d-flex align-items-center mt-2">
+                                    <span class="fw-600 me-5 fs-18">$ 125</span>
+                                    <span class="text-muted me-5">for</span>
+                                    <span class="fw-600 me-2 fs-18">4</span>
+                                    <a href="#" class="btn btn-sm btn-success-light btn-icon me-2">
+                                        <i class="fa fa-minus"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-sm btn-success-light btn-icon">
+                                        <i class="fa fa-plus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <a href="#" class="flex-shrink-0">
+                                <img src="~/images/product/product-6.png" class="avatar h-100 w-100" alt="" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="modal-footer modal-footer-uniform">
+                        <div class="d-flex align-items-center justify-content-between mb-10">
+                            <span class="fw-600 text-muted fs-16 me-2">Total</span>
+                            <span class="fw-600 text-end">$1248.00</span>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between mb-15">
+                            <span class="fw-600 text-muted fs-16 me-2">Sub total</span>
+                            <span class="fw-600 text-primary text-end">$4125.00</span>
+                        </div>
+                        <div class="text-end">
+                            <button type="button" class="btn btn-primary">Place Order</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /quick_shop_toggle -->
+    </div>
+
+
+
+
+
+
+
+    <script src="~/Scripts/jquery-3.6.0.min.js"></script>
+
+
+    @* //@Scripts.Render("~/bundles/mainBudle");
+    *@
+
+    <script src="~/vendors/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="~/vendors/jquery-ui.min.js"></script>
+    <script src="~/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/js/vendors.min.js"></script>
+    <script src="~/js/pages/chat-popup.js"></script>
+
+    <script src="~/assets/vendor_components/jquery-toast-plugin-master/src/jquery.toast.js"></script>
+
+
+    <script src="~/Scripts/toastr.js"></script>
+    <script src="~/Scripts/bootbox.js"></script>
+
+    <script src="~/assets/vendor_components/jquery-toast-plugin-master/src/jquery.toast.js"></script>
+
+    <script src="~/Scripts/toastr.js"></script>
+
+
+
+    @*    @Scripts.Render("~/bundles/jqueryval")*@
+
+
+    <script src="~/assets/icons/feather-icons/feather.min.js"></script>
+    <script src="~/assets/vendor_components/datatable/datatables.min.js"></script>
+    <script src="~/assets/vendor_components/select2/dist/js/select2.full.js"></script>
+    <script src="~/src/js/pages/data-table.js"></script>
+    <script src="~/Scripts/moment.js"></script>
+    <script src="~/Scripts/jquery.maskedinput.min.js"></script>
+    <script src="~/Scripts/dataTables.checkboxes.min.js"></script>
+    <script src="~/Scripts/dataTables.select.min.js"></script>
+    <script src="~/Scripts/jquery.multi-select.js"></script>
+    <script src="~/Scripts/bootstrap-multiselect.js"></script>
+    <script src="~/scripts/bootstrap-datepicker.js"></script>
+    <script src="~/Scripts/jquery-ui.js"></script>
+    <script src="~/src/js/template.js"></script>
+
+    <script src="~/Scripts/autocomplete-0.3.0.js"></script>
+
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+
+
+    <script>
+        $.get("/LeftMenu/GetMyMenu", function (data) {
+            $('#myLeftMenu').replaceWith(data);
+        });
+    </script>
+
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/5e3821cb298c395d1ce5f062/1httotatb';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
+
+
+</body>
+</html>
