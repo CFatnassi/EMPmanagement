@@ -270,6 +270,9 @@
   <data name="CostCenter" xml:space="preserve">
     <value>Cost Center</value>
   </data>
+  <data name="Country" xml:space="preserve">
+    <value>Country</value>
+  </data>
   <data name="Credit" xml:space="preserve">
     <value>Credit</value>
   </data>
@@ -336,6 +339,9 @@
   <data name="Date" xml:space="preserve">
     <value>Date</value>
   </data>
+  <data name="DateOfBirth" xml:space="preserve">
+    <value>Date Of Birth</value>
+  </data>
   <data name="Debit" xml:space="preserve">
     <value>Debit</value>
   </data>
@@ -344,6 +350,24 @@
   </data>
   <data name="DeletedSuccessfully" xml:space="preserve">
     <value>Deleted Successfully</value>
+  </data>
+  <data name="DepArName" xml:space="preserve">
+    <value>Department Arabic Name</value>
+  </data>
+  <data name="Departments" xml:space="preserve">
+    <value>Departments</value>
+  </data>
+  <data name="DepEngName" xml:space="preserve">
+    <value>Department English Name</value>
+  </data>
+  <data name="DesigArName" xml:space="preserve">
+    <value>Designation Arabic Name</value>
+  </data>
+  <data name="DesigEngName" xml:space="preserve">
+    <value>Designation English Name</value>
+  </data>
+  <data name="Designations" xml:space="preserve">
+    <value>Designations</value>
   </data>
   <data name="Details" xml:space="preserve">
     <value>Details</value>
@@ -365,6 +389,15 @@
   </data>
   <data name="Email" xml:space="preserve">
     <value>Email</value>
+  </data>
+  <data name="EmailAddress" xml:space="preserve">
+    <value>Email Address</value>
+  </data>
+  <data name="Employees" xml:space="preserve">
+    <value>Employees</value>
+  </data>
+  <data name="EmpNo" xml:space="preserve">
+    <value>Employee Number</value>
   </data>
   <data name="EmptyTable" xml:space="preserve">
     <value>Empty Table</value>
@@ -420,6 +453,9 @@
   <data name="First" xml:space="preserve">
     <value>First</value>
   </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>First Name</value>
+  </data>
   <data name="Free" xml:space="preserve">
     <value>Free</value>
   </data>
@@ -449,6 +485,9 @@
   </data>
   <data name="FromDate" xml:space="preserve">
     <value>From Date</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>Full Name</value>
   </data>
   <data name="Gender" xml:space="preserve">
     <value>Gender</value>
@@ -549,6 +588,9 @@
   <data name="Last" xml:space="preserve">
     <value>Last</value>
   </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
   <data name="LeftRight" xml:space="preserve">
     <value>left</value>
   </data>
@@ -578,6 +620,9 @@
   </data>
   <data name="MenuCategoryId" xml:space="preserve">
     <value>Menu Category</value>
+  </data>
+  <data name="MiddleName" xml:space="preserve">
+    <value>Middle Name</value>
   </data>
   <data name="ModalDir" xml:space="preserve">
     <value>modal-left</value>
@@ -722,6 +767,9 @@
   </data>
   <data name="Phone" xml:space="preserve">
     <value>Phone</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>Phone Number</value>
   </data>
   <data name="PiadInOut" xml:space="preserve">
     <value>Piad In Out</value>

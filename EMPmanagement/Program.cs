@@ -1,9 +1,8 @@
-using EMPmanagement.Data;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
+using EMPmanagement.Data;
+using EMPmanagement.Persistence;
 using EMPmanagement.Repository;
 using static EMPmanagement.Helper.LangServices;
 using System.Globalization;
@@ -19,6 +18,8 @@ using Microsoft.AspNetCore.Mvc;
 using EMPmanagement.Models;
 using EMPmanagement.Controllers;
 using EMPmanagement.Persistence;
+using EMPmanagement.Repository;
+using static EMPmanagement.Helper.LangServices;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -264,6 +264,9 @@
   <data name="CostCenter" xml:space="preserve">
     <value>تقييم الكلفة</value>
   </data>
+  <data name="Country" xml:space="preserve">
+    <value>البلد</value>
+  </data>
   <data name="Credit" xml:space="preserve">
     <value>Credit</value>
   </data>
@@ -324,6 +327,9 @@
   <data name="Date" xml:space="preserve">
     <value>التاريخ</value>
   </data>
+  <data name="DateOfBirth" xml:space="preserve">
+    <value>تاريخ الولادة</value>
+  </data>
   <data name="Debit" xml:space="preserve">
     <value>Debit</value>
   </data>
@@ -332,6 +338,24 @@
   </data>
   <data name="DeletedSuccessfully" xml:space="preserve">
     <value>تم الحذف بنجاح</value>
+  </data>
+  <data name="DepArName" xml:space="preserve">
+    <value>القمس بالعربي</value>
+  </data>
+  <data name="Departments" xml:space="preserve">
+    <value>الاقسام</value>
+  </data>
+  <data name="DepEngName" xml:space="preserve">
+    <value>القسم بالانجليزي</value>
+  </data>
+  <data name="DesigArName" xml:space="preserve">
+    <value>المنصب بالعربي</value>
+  </data>
+  <data name="DesigEngName" xml:space="preserve">
+    <value>المنصب بالانجليزي</value>
+  </data>
+  <data name="Designations" xml:space="preserve">
+    <value>المناصب</value>
   </data>
   <data name="Details" xml:space="preserve">
     <value>تفاصيل</value>
@@ -353,6 +377,15 @@
   </data>
   <data name="Email" xml:space="preserve">
     <value>البريد الإلكتروني</value>
+  </data>
+  <data name="EmailAddress" xml:space="preserve">
+    <value>البريد الالكتروني</value>
+  </data>
+  <data name="Employees" xml:space="preserve">
+    <value>الموظفون</value>
+  </data>
+  <data name="EmpNo" xml:space="preserve">
+    <value>رقم الموظف</value>
   </data>
   <data name="EmptyTable" xml:space="preserve">
     <value>جدول فارغ</value>
@@ -408,6 +441,9 @@
   <data name="First" xml:space="preserve">
     <value>الاول</value>
   </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>الاسم</value>
+  </data>
   <data name="Free" xml:space="preserve">
     <value>مجاني</value>
   </data>
@@ -437,6 +473,9 @@
   </data>
   <data name="FromDate" xml:space="preserve">
     <value>من</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>الاسم الكامل</value>
   </data>
   <data name="Gender" xml:space="preserve">
     <value>الجنس</value>
@@ -531,6 +570,9 @@
   <data name="Last" xml:space="preserve">
     <value>الاخير</value>
   </data>
+  <data name="LastName" xml:space="preserve">
+    <value>اللقب</value>
+  </data>
   <data name="LeftRight" xml:space="preserve">
     <value>right</value>
   </data>
@@ -560,6 +602,9 @@
   </data>
   <data name="MenuCategoryId" xml:space="preserve">
     <value>فئة القائمة</value>
+  </data>
+  <data name="MiddleName" xml:space="preserve">
+    <value>الاسم الثاني</value>
   </data>
   <data name="ModalDir" xml:space="preserve">
     <value>modal-right</value>
@@ -695,6 +740,9 @@
   </data>
   <data name="Phone" xml:space="preserve">
     <value>رقم الهاتف</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>الهاتف</value>
   </data>
   <data name="PiadInOut" xml:space="preserve">
     <value>ادخال و اخراج</value>
